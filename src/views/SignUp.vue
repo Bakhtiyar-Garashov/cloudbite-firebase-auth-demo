@@ -30,7 +30,6 @@ const register = () => {
     updateProfile(auth.currentUser, {
       displayName: name.value
     });
-    router.push('/');
   }).catch((error) => {
     alert("Failed to create a new user. See error on browser console");
     console.log(error);

@@ -1,5 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { getAuth, signOut } from '@firebase/auth';
+
+const logOut = () => {
+  signOut(getAuth()).then((data)=>{
+    console.log(data)
+    alert("User logged out")
+  }).catch((err)=>{
+    alert(" Error occurred... Check the browser console...")
+    console.log(err)
+  })
+}
 </script>
 
 <template>
@@ -8,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink class="router-link" to="/">Home</RouterLink>
         <RouterLink class="router-link" to="/login">Login</RouterLink>
         <RouterLink class="router-link" to="/register">Sign up</RouterLink>
-
+        <a class="router-link" @click="logOut" href="/">Log out</a>
       </nav>
   </header>
 
